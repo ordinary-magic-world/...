@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Something For You ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at 20% 20%, #ffd6e8 0%, transparent 35%),
+        radial-gradient(circle at 80% 30%, #ddd5ff 0%, transparent 35%),
+        radial-gradient(circle at 30% 90%, #d9f4ff 0%, transparent 40%),
+        linear-gradient(135deg,#fff6fb,#f9f3ff,#effaff,#fff5fa);
+
+    font-family:"Quicksand",cursive;
+}
+
+/* ---------------- SLIDES ---------------- */
+
+.slide{
+    position:absolute;
+
+    width:min(92%,720px);
+    height:calc(100vh - 40px);
+
+    top:20px;
+    left:50%;
+
+    transform:translateX(-50%) scale(.96);
+
+    display:none;
+
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px 20px;
+
+    overflow-y:auto;
+
+    scrollbar-width:none;
+}
+
+.slide::-webkit-scrollbar{
+    display:none;
+}
+
+.slide.active{
+    display:flex;
+    animation:slideIn .8s ease;
+}
+
+@keyframes slideIn{
+    from{
+        opacity:0;
+        transform:translateX(-50%) scale(.92);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(-50%) scale(1);
+    }
+}
+
+/* ---------------- WELCOME ---------------- */
+.welcome{
+    gap:22px;
+}
+
+.welcome-sparkles{
+    font-size:32px;
+    animation:softGlow 2s ease-in-out infinite;
+}
+
+.gift{
+    font-size:85px;
+    animation:giftFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes giftFloat{
+    0%,100%{
+        transform:translateY(0) rotate(-3deg);
+    }
+
+    50%{
+        transform:translateY(-12px) rotate(3deg);
+    }
+}
+
+@keyframes softGlow{
+    0%,100%{
+        transform:scale(1);
+        opacity:.8;
+    }
+
+    50%{
+        transform:scale(1.12);
+        opacity:1;
+    }
+}
+
+.welcome h1{
+    font-size:clamp(45px,8vw,70px);
+}
+
+.welcome p{
+    font-size:32px;
+    line-height:1.35;
+}
+.start-btn{
+    border:none;
+    padding:20px 55px;
+    border-radius:60px;
+
+    font-family:"Quicksand",cursive;
+    font-size:40px;
+    font-weight:600;
+
+    background:linear-gradient(
+        135deg,
+        #ffd9e9,
+        #ddd4ff,
+        #d7f3ff
+    );
+
+    color:#4b4055;
+
+    box-shadow:0 10px 25px rgba(120,90,150,.18);
+
+    cursor:pointer;
+}
+
+/* ---------------- INTRO ---------------- */
+
+.intro{
+    font-size:clamp(30px,5vw,46px);
+
+    line-height:1.25;
+
+    font-weight:600;
+
+    max-width:680px;
+
+    margin-bottom:35px;
+
+    color:#4b4055;
+
+    animation:softAppear 1s ease;
+}
+
+@keyframes softAppear{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ---------------- TAP BUTTON ---------------- */
+
+.tap{
+    border:none;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    font-family:"Quicksand",cursive;
+
+    font-size:29px;
+
+    color:#4d4054;
+
+    background:
+        linear-gradient(135deg,#ffe0ee,#e8ddff,#dff5ff);
+
+    box-shadow:
+        0 10px 30px rgba(130,100,160,.18);
+
+    cursor:pointer;
+
+    animation:pulse 2.2s ease-in-out infinite;
+
+    transition:.3s;
+}
+
+.tap:hover{
+    transform:scale(1.06);
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.04);
+    }
+
+}
+
+/* ---------------- SONG AREA ---------------- */
+
+.song{
+    display:none;
+
+    width:100%;
+
+    animation:appear .8s ease;
+}
+
+.song.show{
+    display:block;
+}
+
+@keyframes appear{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ---------------- MUSIC BOX ---------------- */
+
+.music-box{
+
+    width:min(100%,620px);
+
+    min-height:210px;
+
+    margin:auto;
+
+    padding:28px 25px;
+
+    border-radius:35px;
+
+    background:rgba(255,255,255,.42);
+
+    border:2px solid rgba(255,255,255,.7);
+
+    box-shadow:
+        0 20px 50px rgba(100,80,130,.18),
+        inset 0 0 25px rgba(255,255,255,.35);
+
+    backdrop-filter:blur(15px);
+
+    cursor:pointer;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:22px;
+}
+
+/* ---------------- MUSIC LOGO ---------------- */
+
+.music-logo{
+
+    font-size:52px;
+
+    animation:
+        logoFloat 2.8s ease-in-out infinite,
+        logoSoftBeat 2.2s ease-in-out infinite;
+
+}
+
+@keyframes logoFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+
+}
+
+@keyframes logoSoftBeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+
+}
+
+/* ---------------- WAVEFORM ---------------- */
+
+.waveform{
+
+    width:100%;
+
+    height:90px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:7px;
+
+    overflow:hidden;
+}
+
+.waveform span{
+
+    display:block;
+
+    width:6px;
+
+    min-height:18px;
+
+    height:var(--height);
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            to top,
+            #e8c9df,
+            #cfc5f5,
+            #bfe5ef
+        );
+
+    transform-origin:center;
+
+    /*
+       ALWAYS BOUNCING
+       Slow + soft
+    */
+
+    animation:
+        gentleWave var(--speed) ease-in-out infinite alternate;
+
+    animation-delay:var(--delay);
+
+}
+
+@keyframes gentleWave{
+
+    0%{
+        transform:scaleY(.55);
+        opacity:.65;
+    }
+
+    25%{
+        transform:scaleY(.9);
+        opacity:.8;
+    }
+
+    50%{
+        transform:scaleY(.7);
+        opacity:.7;
+    }
+
+    75%{
+        transform:scaleY(1);
+        opacity:.9;
+    }
+
+    100%{
+        transform:scaleY(.5);
+        opacity:.65;
+    }
+
+}
+
+/* ---------------- NEXT BUTTON ---------------- */
+
+.next-btn{
+    display:none;
+
+    margin:35px auto 0;
+
+    min-width:250px;
+
+    padding:15px 60px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-family:"Quicksand",cursive;
+
+    font-size:34px;
+
+    font-weight:600;
+
+    color:#4b4055;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd9e9,
+            #ddd4ff,
+            #d7f3ff
+        );
+
+    box-shadow:
+        0 10px 30px rgba(120,90,150,.18);
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.next-btn.ready{
+    display:block;
+    animation:nextBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes nextBounce{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+}
+
+.next-btn:hover{
+    transform:scale(1.06);
+}
+
+/* ---------------- FINAL PAGE ---------------- */
+
+.final{
+    gap:18px;
+}
+
+.finalDecor{
+    font-size:32px;
+
+    animation:floatDecor 3s ease-in-out infinite;
+}
+
+@keyframes floatDecor{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
+.bigHeart{
+
+    font-size:100px;
+
+    animation:heartBeat 1.8s ease-in-out infinite;
+
+}
+
+@keyframes heartBeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.12);
+    }
+
+}
+
+.final h1{
+
+    font-size:clamp(40px,8vw,65px);
+
+    color:#51435b;
+
+}
+
+.finalMessage{
+
+    font-size:clamp(28px,5vw,40px);
+
+    line-height:1.35;
+
+    color:#55495e;
+
+    max-width:650px;
+
+}
+
+/* ---------------- PROGRESS DOTS ---------------- */
+
+#progress{
+
+    position:fixed;
+
+    bottom:15px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:7px;
+
+    z-index:100;
+}
+
+.dot{
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:rgba(100,80,120,.25);
+
+    transition:.3s;
+}
+
+.dot.active{
+
+    width:22px;
+
+    border-radius:20px;
+
+    background:rgba(100,80,120,.65);
+
+}
+
+/* ---------------- FLOATING HEARTS ---------------- */
+
+.floating{
+
+    position:fixed;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+    animation:floatUp linear forwards;
+
+}
+
+@keyframes floatUp{
+
+    0%{
+        transform:translateY(100vh) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:.7;
+    }
+
+    90%{
+        opacity:.7;
+    }
+
+    100%{
+        transform:translateY(-15vh) rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+/* ---------------- SPARKLES ---------------- */
+
+.sparkle{
+
+    position:fixed;
+
+    pointer-events:none;
+
+    opacity:.6;
+
+    animation:sparkleAnim 3s ease-in-out infinite;
+
+}
+
+@keyframes sparkleAnim{
+
+    0%,100%{
+        opacity:.2;
+        transform:scale(.7);
+    }
+
+    50%{
+        opacity:.9;
+        transform:scale(1.2);
+    }
+
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media(max-width:600px){
+
+    .music-box{
+
+        min-height:190px;
+
+        padding:22px 15px;
+
+    }
+
+    .waveform{
+
+        gap:4px;
+
+    }
+
+    .waveform span{
+
+        width:4px;
+
+    }
+
+    .next-btn{
+
+        min-width:220px;
+
+        font-size:30px;
+
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     WELCOME SLIDE
+===================================================== -->
+
+<section class="slide welcome active" id="welcome">
+
+    <div class="welcome-sparkles">
+        ✨ 💗 ✨
+    </div>
+
+    <div class="gift">
+        💌
+    </div>
+
+    <h1>
+        HEY YOU... 🫣
+    </h1>
+
+    <p>
+        I made something<br>
+        just for you. 🥹💗
+    </p>
+
+  <button class="start-btn" onclick="beginJourney()">
+    💗 Open it... ✨
+</button>
+
+</section>
+
+<!-- =====================================================
+     SLIDE 1
+===================================================== -->
+
+<section class="slide">
+
+    <p class="intro">
+        You always ask me, “Why only you?”
+        So.........💝❤️
+    </p>
+
+    <button class="tap" onclick="startSong(1)">
+        🎧 Tap to listen ♡
+    </button>
+
+    <div class="song" id="song1">
+
+        <div class="music-box" onclick="toggleSong(1)">
+
+            <div class="music-logo">🎧</div>
+
+            <div class="waveform">
+
+                <span style="--height:35px;--speed:3.2s;--delay:.1s"></span>
+                <span style="--height:65px;--speed:2.8s;--delay:.4s"></span>
+                <span style="--height:45px;--speed:3.6s;--delay:.2s"></span>
+                <span style="--height:78px;--speed:3s;--delay:.7s"></span>
+                <span style="--height:55px;--speed:3.8s;--delay:.3s"></span>
+                <span style="--height:70px;--speed:3.3s;--delay:.9s"></span>
+                <span style="--height:40px;--speed:3.7s;--delay:.5s"></span>
+                <span style="--height:82px;--speed:3.1s;--delay:.8s"></span>
+                <span style="--height:50px;--speed:3.9s;--delay:.2s"></span>
+                <span style="--height:68px;--speed:3.4s;--delay:.6s"></span>
+                <span style="--height:42px;--speed:3.8s;--delay:.1s"></span>
+                <span style="--height:75px;--speed:3.2s;--delay:.5s"></span>
+                <span style="--height:48px;--speed:3.7s;--delay:.8s"></span>
+                <span style="--height:80px;--speed:3.5s;--delay:.3s"></span>
+                <span style="--height:38px;--speed:3.9s;--delay:.7s"></span>
+                <span style="--height:67px;--speed:3.3s;--delay:.2s"></span>
+                <span style="--height:52px;--speed:3.6s;--delay:.9s"></span>
+                <span style="--height:76px;--speed:3.1s;--delay:.4s"></span>
+                <span style="--height:44px;--speed:3.8s;--delay:.6s"></span>
+                <span style="--height:72px;--speed:3.4s;--delay:.1s"></span>
+                <span style="--height:55px;--speed:3.7s;--delay:.5s"></span>
+                <span style="--height:80px;--speed:3.2s;--delay:.8s"></span>
+                <span style="--height:43px;--speed:3.9s;--delay:.3s"></span>
+                <span style="--height:69px;--speed:3.5s;--delay:.7s"></span>
+
+            </div>
+
+            <audio id="audio1" src="1.mp3"></audio>
+
+        </div>
+
+        <button class="next-btn" onclick="nextSlide()">
+            NEXT ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SLIDE 2
+===================================================== -->
+
+<section class="slide">
+
+    <p class="intro">
+        I never thought thaaaat....😱✨
+    </p>
+
+    <button class="tap" onclick="startSong(2)">
+        🎧 Tap to listen ♡
+    </button>
+
+    <div class="song" id="song2">
+
+        <div class="music-box" onclick="toggleSong(2)">
+
+            <div class="music-logo">🎧</div>
+
+            <div class="waveform">
+
+                <span style="--height:40px;--speed:3.4s"></span>
+                <span style="--height:72px;--speed:3.8s"></span>
+                <span style="--height:50px;--speed:3.2s"></span>
+                <span style="--height:80px;--speed:3.6s"></span>
+                <span style="--height:45px;--speed:3.9s"></span>
+                <span style="--height:68px;--speed:3.3s"></span>
+                <span style="--height:55px;--speed:3.7s"></span>
+                <span style="--height:78px;--speed:3.1s"></span>
+                <span style="--height:42px;--speed:3.8s"></span>
+                <span style="--height:70px;--speed:3.5s"></span>
+                <span style="--height:48px;--speed:3.9s"></span>
+                <span style="--height:82px;--speed:3.3s"></span>
+                <span style="--height:52px;--speed:3.6s"></span>
+                <span style="--height:74px;--speed:3.2s"></span>
+                <span style="--height:40px;--speed:3.8s"></span>
+                <span style="--height:68px;--speed:3.5s"></span>
+                <span style="--height:50px;--speed:3.9s"></span>
+                <span style="--height:78px;--speed:3.4s"></span>
+                <span style="--height:44px;--speed:3.7s"></span>
+                <span style="--height:70px;--speed:3.1s"></span>
+                <span style="--height:56px;--speed:3.8s"></span>
+                <span style="--height:80px;--speed:3.5s"></span>
+                <span style="--height:46px;--speed:3.9s"></span>
+                <span style="--height:66px;--speed:3.3s"></span>
+
+            </div>
+
+            <audio id="audio2" src="2.mp3"></audio>
+
+        </div>
+
+        <button class="next-btn" onclick="nextSlide()">
+            NEXT ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SLIDE 3
+===================================================== -->
+
+<section class="slide">
+
+    <p class="intro">
+        You always ask me to forget you🥹.....
+        Aare yaaaaaaaar...... 🥹😭
+    </p>
+
+    <button class="tap" onclick="startSong(3)">
+        🎧 Tap to listen ♡
+    </button>
+
+    <div class="song" id="song3">
+
+        <div class="music-box" onclick="toggleSong(3)">
+
+            <div class="music-logo">🎧</div>
+
+            <div class="waveform">
+
+                <span style="--height:45px;--speed:3.6s"></span>
+                <span style="--height:75px;--speed:3.2s"></span>
+                <span style="--height:50px;--speed:3.9s"></span>
+                <span style="--height:82px;--speed:3.5s"></span>
+                <span style="--height:40px;--speed:3.8s"></span>
+                <span style="--height:68px;--speed:3.3s"></span>
+                <span style="--height:55px;--speed:3.7s"></span>
+                <span style="--height:78px;--speed:3.1s"></span>
+                <span style="--height:48px;--speed:3.9s"></span>
+                <span style="--height:70px;--speed:3.4s"></span>
+                <span style="--height:42px;--speed:3.8s"></span>
+                <span style="--height:80px;--speed:3.2s"></span>
+                <span style="--height:52px;--speed:3.7s"></span>
+                <span style="--height:73px;--speed:3.5s"></span>
+                <span style="--height:44px;--speed:3.9s"></span>
+                <span style="--height:67px;--speed:3.3s"></span>
+                <span style="--height:56px;--speed:3.8s"></span>
+                <span style="--height:79px;--speed:3.4s"></span>
+                <span style="--height:47px;--speed:3.7s"></span>
+                <span style="--height:71px;--speed:3.2s"></span>
+                <span style="--height:53px;--speed:3.9s"></span>
+                <span style="--height:76px;--speed:3.5s"></span>
+                <span style="--height:41px;--speed:3.8s"></span>
+                <span style="--height:69px;--speed:3.3s"></span>
+
+            </div>
+
+            <audio id="audio3" src="3.mp3"></audio>
+
+        </div>
+
+        <button class="next-btn" onclick="nextSlide()">
+            NEXT ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SLIDE 4
+===================================================== -->
+
+<section class="slide">
+
+    <p class="intro">
+        You know how it feels..😁 when I talk to you....❤️🥰
+    </p>
+
+    <button class="tap" onclick="startSong(4)">
+        🎧 Tap to listen ♡
+    </button>
+
+    <div class="song" id="song4">
+
+        <div class="music-box" onclick="toggleSong(4)">
+
+            <div class="music-logo">🎧</div>
+
+            <div class="waveform">
+
+                <span style="--height:38px;--speed:3.8s"></span>
+                <span style="--height:70px;--speed:3.4s"></span>
+                <span style="--height:52px;--speed:3.9s"></span>
+                <span style="--height:80px;--speed:3.2s"></span>
+                <span style="--height:44px;--speed:3.7s"></span>
+                <span style="--height:68px;--speed:3.5s"></span>
+                <span style="--height:56px;--speed:3.9s"></span>
+                <span style="--height:76px;--speed:3.3s"></span>
+                <span style="--height:42px;--speed:3.8s"></span>
+                <span style="--height:72px;--speed:3.5s"></span>
+                <span style="--height:48px;--speed:3.9s"></span>
+                <span style="--height:82px;--speed:3.2s"></span>
+                <span style="--height:50px;--speed:3.7s"></span>
+                <span style="--height:74px;--speed:3.4s"></span>
+                <span style="--height:40px;--speed:3.8s"></span>
+                <span style="--height:66px;--speed:3.5s"></span>
+                <span style="--height:54px;--speed:3.9s"></span>
+                <span style="--height:78px;--speed:3.3s"></span>
+                <span style="--height:46px;--speed:3.7s"></span>
+                <span style="--height:70px;--speed:3.4s"></span>
+                <span style="--height:58px;--speed:3.8s"></span>
+                <span style="--height:80px;--speed:3.2s"></span>
+                <span style="--height:43px;--speed:3.9s"></span>
+                <span style="--height:67px;--speed:3.5s"></span>
+
+            </div>
+
+            <audio id="audio4" src="4.mp3"></audio>
+
+        </div>
+
+        <button class="next-btn" onclick="nextSlide()">
+            NEXT ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SLIDE 5
+===================================================== -->
+
+<section class="slide">
+
+    <p class="intro">
+        When I see your eyes........🫣👀
+    </p>
+
+    <button class="tap" onclick="startSong(5)">
+        🎧 Tap to listen ♡
+    </button>
+
+    <div class="song" id="song5">
+
+        <div class="music-box" onclick="toggleSong(5)">
+
+            <div class="music-logo">🎧</div>
+
+            <div class="waveform">
+
+                <span style="--height:42px;--speed:3.7s"></span>
+                <span style="--height:76px;--speed:3.3s"></span>
+                <span style="--height:48px;--speed:3.9s"></span>
+                <span style="--height:82px;--speed:3.5s"></span>
+                <span style="--height:55px;--speed:3.8s"></span>
+                <span style="--height:70px;--speed:3.2s"></span>
+                <span style="--height:40px;--speed:3.9s"></span>
+                <span style="--height:78px;--speed:3.4s"></span>
+                <span style="--height:50px;--speed:3.7s"></span>
+                <span style="--height:68px;--speed:3.5s"></span>
+                <span style="--height:44px;--speed:3.9s"></span>
+                <span style="--height:80px;--speed:3.3s"></span>
+                <span style="--height:52px;--speed:3.8s"></span>
+                <span style="--height:74px;--speed:3.2s"></span>
+                <span style="--height:46px;--speed:3.9s"></span>
+                <span style="--height:72px;--speed:3.5s"></span>
+                <span style="--height:58px;--speed:3.7s"></span>
+                <span style="--height:79px;--speed:3.4s"></span>
+                <span style="--height:43px;--speed:3.8s"></span>
+                <span style="--height:69px;--speed:3.3s"></span>
+                <span style="--height:55px;--speed:3.9s"></span>
+                <span style="--height:81px;--speed:3.5s"></span>
+                <span style="--height:41px;--speed:3.8s"></span>
+                <span style="--height:66px;--speed:3.2s"></span>
+
+            </div>
+
+            <audio id="audio5" src="5.mp3"></audio>
+
+        </div>
+
+        <button class="next-btn" onclick="nextSlide()">
+            NEXT ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SLIDE 6
+===================================================== -->
+
+<section class="slide">
+
+    <p class="intro">
+        The way every single word you say feels....❤️
+    </p>
+
+    <button class="tap" onclick="startSong(6)">
+        🎧 Tap to listen ♡
+    </button>
+
+    <div class="song" id="song6">
+
+        <div class="music-box" onclick="toggleSong(6)">
+
+            <div class="music-logo">🎧</div>
+
+            <div class="waveform">
+
+                <span style="--height:45px;--speed:3.9s"></span>
+                <span style="--height:72px;--speed:3.4s"></span>
+                <span style="--height:50px;--speed:3.7s"></span>
+                <span style="--height:80px;--speed:3.2s"></span>
+                <span style="--height:42px;--speed:3.8s"></span>
+                <span style="--height:68px;--speed:3.5s"></span>
+                <span style="--height:56px;--speed:3.9s"></span>
+                <span style="--height:76px;--speed:3.3s"></span>
+                <span style="--height:48px;--speed:3.7s"></span>
+                <span style="--height:70px;--speed:3.5s"></span>
+                <span style="--height:40px;--speed:3.9s"></span>
+                <span style="--height:82px;--speed:3.2s"></span>
+                <span style="--height:54px;--speed:3.8s"></span>
+                <span style="--height:74px;--speed:3.4s"></span>
+                <span style="--height:46px;--speed:3.9s"></span>
+                <span style="--height:67px;--speed:3.3s"></span>
+                <span style="--height:58px;--speed:3.7s"></span>
+                <span style="--height:79px;--speed:3.5s"></span>
+                <span style="--height:43px;--speed:3.8s"></span>
+                <span style="--height:71px;--speed:3.2s"></span>
+                <span style="--height:52px;--speed:3.9s"></span>
+                <span style="--height:77px;--speed:3.4s"></span>
+                <span style="--height:41px;--speed:3.8s"></span>
+                <span style="--height:69px;--speed:3.3s"></span>
+
+            </div>
+
+            <audio id="audio6" src="6.mp3"></audio>
+
+        </div>
+
+        <button class="next-btn" onclick="nextSlide()">
+            NEXT ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SLIDE 7
+===================================================== -->
+
+<section class="slide">
+
+    <p class="intro">
+        When someone asks me.....,
+        “Why are you sooooo happy?”
+         🎀💗✨
+    </p>
+
+    <button class="tap" onclick="startSong(7)">
+        🎧 Tap to listen ♡
+    </button>
+
+    <div class="song" id="song7">
+
+        <div class="music-box" onclick="toggleSong(7)">
+
+            <div class="music-logo">🎧</div>
+
+            <div class="waveform">
+
+                <span style="--height:40px;--speed:3.8s"></span>
+                <span style="--height:70px;--speed:3.4s"></span>
+                <span style="--height:55px;--speed:3.9s"></span>
+                <span style="--height:82px;--speed:3.2s"></span>
+                <span style="--height:45px;--speed:3.7s"></span>
+                <span style="--height:68px;--speed:3.5s"></span>
+                <span style="--height:52px;--speed:3.9s"></span>
+                <span style="--height:76px;--speed:3.3s"></span>
+                <span style="--height:48px;--speed:3.8s"></span>
+                <span style="--height:72px;--speed:3.5s"></span>
+                <span style="--height:42px;--speed:3.9s"></span>
+                <span style="--height:80px;--speed:3.2s"></span>
+                <span style="--height:50px;--speed:3.7s"></span>
+                <span style="--height:74px;--speed:3.4s"></span>
+                <span style="--height:44px;--speed:3.8s"></span>
+                <span style="--height:69px;--speed:3.5s"></span>
+                <span style="--height:57px;--speed:3.9s"></span>
+                <span style="--height:78px;--speed:3.3s"></span>
+                <span style="--height:43px;--speed:3.7s"></span>
+                <span style="--height:71px;--speed:3.4s"></span>
+                <span style="--height:53px;--speed:3.8s"></span>
+                <span style="--height:81px;--speed:3.2s"></span>
+                <span style="--height:41px;--speed:3.9s"></span>
+                <span style="--height:67px;--speed:3.5s"></span>
+
+            </div>
+
+            <audio id="audio7" src="7.mp3"></audio>
+
+        </div>
+
+        <button class="next-btn" onclick="nextSlide()">
+            NEXT ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SLIDE 8
+===================================================== -->
+
+<section class="slide">
+
+    <p class="intro">
+       🥹whenever I see you…😭❤️
+    </p>
+
+    <button class="tap" onclick="startSong(8)">
+        🎧 Tap to listen ♡
+    </button>
+
+    <div class="song" id="song8">
+
+        <div class="music-box" onclick="toggleSong(8)">
+
+            <div class="music-logo">🎧</div>
+
+            <div class="waveform">
+
+                <span style="--height:44px;--speed:3.9s"></span>
+                <span style="--height:73px;--speed:3.4s"></span>
+                <span style="--height:49px;--speed:3.8s"></span>
+                <span style="--height:81px;--speed:3.2s"></span>
+                <span style="--height:42px;--speed:3.7s"></span>
+                <span style="--height:69px;--speed:3.5s"></span>
+                <span style="--height:55px;--speed:3.9s"></span>
+                <span style="--height:78px;--speed:3.3s"></span>
+                <span style="--height:47px;--speed:3.8s"></span>
+                <span style="--height:71px;--speed:3.5s"></span>
+                <span style="--height:40px;--speed:3.9s"></span>
+                <span style="--height:80px;--speed:3.2s"></span>
+                <span style="--height:53px;--speed:3.7s"></span>
+                <span style="--height:75px;--speed:3.4s"></span>
+                <span style="--height:45px;--speed:3.8s"></span>
+                <span style="--height:68px;--speed:3.5s"></span>
+                <span style="--height:57px;--speed:3.9s"></span>
+                <span style="--height:79px;--speed:3.3s"></span>
+                <span style="--height:43px;--speed:3.7s"></span>
+                <span style="--height:70px;--speed:3.4s"></span>
+                <span style="--height:51px;--speed:3.8s"></span>
+                <span style="--height:82px;--speed:3.2s"></span>
+                <span style="--height:41px;--speed:3.9s"></span>
+                <span style="--height:66px;--speed:3.5s"></span>
+
+            </div>
+
+            <audio id="audio8" src="8.mp3"></audio>
+
+        </div>
+
+        <button class="next-btn" onclick="nextSlide()">
+            NEXT ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SLIDE 9
+===================================================== -->
+
+<section class="slide">
+
+    <p class="intro">
+        I’ve always wanted to tell you something…
+        but.............. 🥹❤️
+    </p>
+
+    <button class="tap" onclick="startSong(9)">
+        🎧 Tap to listen ♡
+    </button>
+
+    <div class="song" id="song9">
+
+        <div class="music-box" onclick="toggleSong(9)">
+
+            <div class="music-logo">🎧</div>
+
+            <div class="waveform">
+
+                <span style="--height:40px;--speed:3.8s"></span>
+                <span style="--height:72px;--speed:3.4s"></span>
+                <span style="--height:51px;--speed:3.9s"></span>
+                <span style="--height:80px;--speed:3.2s"></span>
+                <span style="--height:45px;--speed:3.7s"></span>
+                <span style="--height:68px;--speed:3.5s"></span>
+                <span style="--height:56px;--speed:3.9s"></span>
+                <span style="--height:77px;--speed:3.3s"></span>
+                <span style="--height:48px;--speed:3.8s"></span>
+                <span style="--height:71px;--speed:3.5s"></span>
+                <span style="--height:42px;--speed:3.9s"></span>
+                <span style="--height:82px;--speed:3.2s"></span>
+                <span style="--height:53px;--speed:3.7s"></span>
+                <span style="--height:75px;--speed:3.4s"></span>
+                <span style="--height:44px;--speed:3.8s"></span>
+                <span style="--height:69px;--speed:3.5s"></span>
+                <span style="--height:58px;--speed:3.9s"></span>
+                <span style="--height:79px;--speed:3.3s"></span>
+                <span style="--height:46px;--speed:3.7s"></span>
+                <span style="--height:70px;--speed:3.4s"></span>
+                <span style="--height:52px;--speed:3.8s"></span>
+                <span style="--height:81px;--speed:3.2s"></span>
+                <span style="--height:41px;--speed:3.9s"></span>
+                <span style="--height:67px;--speed:3.5s"></span>
+
+            </div>
+
+            <audio id="audio9" src="9.mp3"></audio>
+
+        </div>
+
+        <button class="next-btn" onclick="nextSlide()">
+            NEXT ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SLIDE 10
+===================================================== -->
+
+<section class="slide">
+
+    <p class="intro">
+        And LISTEN......😤💢
+
+    </p>
+
+    <button class="tap" onclick="startSong(10)">
+        🎧 Tap to listen ♡
+    </button>
+
+    <div class="song" id="song10">
+
+        <div class="music-box" onclick="toggleSong(10)">
+
+            <div class="music-logo">🎧</div>
+
+            <div class="waveform">
+
+                <span style="--height:43px;--speed:3.9s"></span>
+                <span style="--height:75px;--speed:3.4s"></span>
+                <span style="--height:50px;--speed:3.8s"></span>
+                <span style="--height:82px;--speed:3.2s"></span>
+                <span style="--height:45px;--speed:3.7s"></span>
+                <span style="--height:70px;--speed:3.5s"></span>
+                <span style="--height:55px;--speed:3.9s"></span>
+                <span style="--height:78px;--speed:3.3s"></span>
+                <span style="--height:48px;--speed:3.8s"></span>
+                <span style="--height:72px;--speed:3.5s"></span>
+                <span style="--height:40px;--speed:3.9s"></span>
+                <span style="--height:80px;--speed:3.2s"></span>
+                <span style="--height:52px;--speed:3.7s"></span>
+                <span style="--height:76px;--speed:3.4s"></span>
+                <span style="--height:44px;--speed:3.8s"></span>
+                <span style="--height:68px;--speed:3.5s"></span>
+                <span style="--height:57px;--speed:3.9s"></span>
+                <span style="--height:79px;--speed:3.3s"></span>
+                <span style="--height:46px;--speed:3.7s"></span>
+                <span style="--height:71px;--speed:3.4s"></span>
+                <span style="--height:53px;--speed:3.8s"></span>
+                <span style="--height:81px;--speed:3.2s"></span>
+                <span style="--height:41px;--speed:3.9s"></span>
+                <span style="--height:67px;--speed:3.5s"></span>
+
+            </div>
+
+            <audio id="audio10" src="10.mp3"></audio>
+
+        </div>
+
+        <button class="next-btn" onclick="nextSlide()">
+            NEXT ♡
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FINAL SLIDE
+===================================================== -->
+
+<section class="slide final" id="final">
+
+    <div class="finalDecor">
+        💗 ✨ 🌸 🦋 ✨ 💗
+    </div>
+
+    <div class="bigHeart">
+        💗
+    </div>
+
+    <h1>
+        And that's it... ♡
+    </h1>
+
+    <p class="finalMessage">
+
+        Some songs are just songs.
+        <br>
+        But some songs become memories.
+        <br>
+        And somehow…
+        <br>
+        these songs will always remind me of you. 🥹❤️
+        <br><br>
+        🌸🦋✨💗✨🦋🌸
+
+    </p>
+
+</section>
+
+
+
+<!-- PROGRESS -->
+
+<div id="progress"></div>
+
+
+
+<script>
+
+/* =====================================================
+   SLIDES
+===================================================== */
+
+const slides = document.querySelectorAll(".slide:not(.final):not(.welcome)");
+
+const finalSlide = document.getElementById("final");
+
+const welcomeSlide = document.getElementById("welcome");
+
+const progress = document.getElementById("progress");
+
+let currentSlide = 0;
+
+
+/* =====================================================
+   PROGRESS DOTS
+===================================================== */
+
+slides.forEach((slide,index)=>{
+
+    const dot = document.createElement("div");
+
+    dot.className = "dot";
+
+    if(index === 0){
+        dot.classList.add("active");
+    }
+
+    progress.appendChild(dot);
+
+});
+
+
+function updateProgress(){
+
+    const dots = document.querySelectorAll(".dot");
+
+    dots.forEach((dot,index)=>{
+
+        dot.classList.toggle(
+            "active",
+            index === currentSlide
+        );
+
+    });
+
+}
+
+
+
+/* =====================================================
+   START THE JOURNEY
+===================================================== */
+
+function beginJourney(){
+
+    welcomeSlide.classList.remove("active");
+
+    slides.forEach(function(slide){
+        slide.classList.remove("active");
+    });
+
+    currentSlide = 0;
+
+    slides[0].classList.add("active");
+
+    progress.style.display = "flex";
+
+    updateProgress();
+}
+
+
+/* =====================================================
+   STOP ALL SONGS
+===================================================== */
+
+function stopAllSongs(){
+
+    document.querySelectorAll("audio").forEach(audio=>{
+
+        audio.pause();
+
+        audio.currentTime = 0;
+
+    });
+
+}
+
+
+
+/* =====================================================
+   START SONG
+===================================================== */
+
+function startSong(number){
+
+    const slide = slides[number - 1];
+
+    const intro = slide.querySelector(".intro");
+
+    const tap = slide.querySelector(".tap");
+
+    const song = document.getElementById(
+        "song" + number
+    );
+
+    const audio = document.getElementById(
+        "audio" + number
+    );
+
+
+    intro.style.display = "none";
+
+    tap.style.display = "none";
+
+    song.classList.add("show");
+
+    const nextButton = song.querySelector(".next-btn");
+
+    nextButton.classList.remove("ready");
+
+
+    stopAllSongs();
+
+
+    audio.currentTime = 0;
+
+    audio.play().catch(()=>{
+
+        console.log("Song needs another tap to start.");
+
+    });
+
+}
+
+
+
+/* =====================================================
+   MUSIC BOX CLICK
+   (plays / pauses song only)
+===================================================== */
+
+function toggleSong(number){
+
+    const audio = document.getElementById(
+        "audio" + number
+    );
+
+
+    if(audio.paused){
+
+        stopAllSongs();
+
+        audio.play();
+
+    }
+    else{
+
+        audio.pause();
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SONG FINISHED
+===================================================== */
+
+document.querySelectorAll("audio").forEach(audio=>{
+
+    audio.addEventListener("ended",()=>{
+
+        const song = audio.closest(".song");
+
+        if(song){
+
+            const nextButton = song.querySelector(".next-btn");
+
+            nextButton.classList.add("ready");
+
+        }
+
+    });
+
+});
+
+
+
+/* =====================================================
+   NEXT SLIDE
+===================================================== */
+
+function nextSlide(){
+
+    stopAllSongs();
+
+
+    slides[currentSlide].classList.remove("active");
+
+
+    currentSlide++;
+
+
+    if(currentSlide >= slides.length){
+
+        finalSlide.classList.add("active");
+
+        progress.style.display = "none";
+
+        return;
+
+    }
+
+
+    slides[currentSlide].classList.add("active");
+
+
+    updateProgress();
+
+}
+
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+const heartList = [
+
+    "💗",
+    "💕",
+    "💖",
+    "💓",
+    "💞",
+    "♡",
+    "♥",
+    "🌸",
+    "✨",
+    "🦋",
+    "🌷"
+
+];
+
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "floating";
+
+    heart.innerHTML =
+        heartList[
+            Math.floor(
+                Math.random() * heartList.length
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    heart.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+
+    heart.style.animationDuration =
+        (7 + Math.random() * 7) + "s";
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },15000);
+
+}
+
+
+setInterval(createHeart,450);
+
+
+
+/* =====================================================
+   SPARKLES
+===================================================== */
+
+for(let i=0;i<55;i++){
+
+    const sparkle = document.createElement("div");
+
+    sparkle.className = "sparkle";
+
+    sparkle.innerHTML = "✦";
+
+
+    sparkle.style.left =
+        Math.random() * 100 + "vw";
+
+
+    sparkle.style.top =
+        Math.random() * 100 + "vh";
+
+
+    sparkle.style.fontSize =
+        (8 + Math.random() * 14) + "px";
+
+
+    sparkle.style.animationDelay =
+        Math.random() * 3 + "s";
+
+
+    document.body.appendChild(sparkle);
+
+}
+
+</script>
+
+</body>
+</html>
